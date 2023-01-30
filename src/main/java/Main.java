@@ -1,3 +1,5 @@
+import java.io.*;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +12,17 @@ public class Main {
     }
 
     void run(Scanner scanner) {
-        // usupełnij metodę
+        CountryReader countryReader = new CountryReader();
+        HashMap<String, Country> countryMap = countryReader.createMap("countries.csv");
+        File file = new File("countries.csv");
+        if (file.exists()) {
+            System.out.println("Podaj kod kraju, o którym chcesz zobaczyć informacje:");
+            String countryCode = scanner.nextLine();
+            if (countryMap.get(countryCode) != null) {
+                System.out.println(countryMap.get(countryCode));
+            } else {
+                System.out.println("Kod kraju " + countryCode + " nie został znaleziony.");
+            }
+        }
     }
-
 }
