@@ -18,7 +18,7 @@ public class Main {
         if (file.exists()) {
             System.out.println("Podaj kod kraju, o którym chcesz zobaczyć informacje:");
             String countryCode = scanner.nextLine();
-            if (countryMap.get(countryCode) != null) {
+            if (countryMap.containsKey(countryCode)) {
                 System.out.println(countryMap.get(countryCode));
             } else {
                 System.out.println("Kod kraju " + countryCode + " nie został znaleziony.");
